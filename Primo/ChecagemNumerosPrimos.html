@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checagem de numero primo</title>
+</head>
+<body>
+    <h1>Verificador de Números Primos</h1>
+    <input type="number" id="numInput" placeholder="Digite um número" />
+    <button onclick="checkPrime()">Verificar</button>
+    <p id="result"></p>
+
+
+    <script>
+    function checkNumPrimo(num){
+        if (num < 2) return false;
+
+            for(let i = 2; i < Math.sqrt(num); i++){
+                if (num % i === 0){
+                return false;
+
+                }
+           }
+            return true;        
+        }
+        function checkNumInput() {
+            const input = document.getElementById('numInput').value;
+            const num = parseInt(input);
+            const resultElement = document.getElementById('result');
+
+            if (isNaN(num)) {
+                resultElement.textContent = "Por favor, insira um número válido.";
+            } else {
+                const isPrimeNumber = checkNumPrimo(num);
+                resultElement.textContent = isPrimeNumber ? `${num} é primo!` : `${num} não é primo.`;
+            }
+        }    
+    </script>
+</body>
+
+</html>
